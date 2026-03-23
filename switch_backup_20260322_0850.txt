@@ -1,0 +1,79 @@
+! ONTi ONT-S508CL-8S Running Config Backup
+! Date: 2026-03-22 08:50 BRT
+! IP: 192.168.1.254
+! Access: SSH admin@192.168.1.254 / password: admin
+!
+no service password-encryption
+!
+hostname Switch
+sysLocation Default
+sysContact Default
+!
+multi config access
+!
+username admin privilege 15 password 7 21232f297a57a5a743894a0e4a801fc3
+!
+authentication line console login local
+!
+!
+!
+
+!
+!
+ssh-server enable
+!
+ip host msi-laptop 192.168.1.7
+ip host lenovo-lab 192.168.1.15
+ip host lenovo 192.168.1.15
+ip host tim-cpe 192.168.1.1
+ip host huawei-be3 192.168.1.16
+ip host netgear-rax120 192.168.1.100
+!
+!
+!
+!
+!
+!
+!
+!
+ip dns server
+!
+vlan 1
+!
+vlan 16
+ name HUAWEI
+!
+Interface Ethernet1/0/1
+!
+Interface Ethernet1/0/2
+!
+Interface Ethernet1/0/3
+!
+Interface Ethernet1/0/4
+!
+Interface Ethernet1/0/5
+!
+Interface Ethernet1/0/6
+!
+Interface Ethernet1/0/7
+!
+Interface Ethernet1/0/8
+!
+interface Vlan1
+ ip address 192.168.1.254 255.255.255.0
+!
+interface Vlan16
+ ip address 192.168.16.254 255.255.255.0
+!
+ip route 0.0.0.0/0 192.168.1.1 10
+ip route 192.168.16.0/24 192.168.16.1
+ip route 192.168.16.0/24 192.168.1.16
+ip route 192.168.132.0/24 192.168.132.1
+ip route 192.168.132.0/24 192.168.1.100
+!
+ntp enable
+ntp server 200.160.7.186
+!
+no login
+!
+end
